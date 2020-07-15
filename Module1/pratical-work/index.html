@@ -3,38 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <title>Color Picker</title>
 </head>
 <body>
-    <main class="container">
-        <h1>RGB (Red, Green, Blue)</h1>
-        <section>
-          <div id="red">
-            <div>
-                <label for="red">Red</label>
-                <input type="range" min="0" max="255" value="255" class="slider" id="myRange">
-                <input type="text"  disabled=true value="5">
-
-            </div>
-           
-          </div>
-          <div id="green">
-            <div>
-                <label for="green">Green</label>
-                <input type="range" min="0" max="255" value="255" class="slider" id="myRange">
-                <input type="text"  disabled=true value="5">
-            </div>
-          </div>
-          <div id="blue">
-            <div>
-                <label for="blue">Blue</label>
-                <input type="range" min="0" max="255" value="255" class="slider" id="myRange">
-                <input type="text"  disabled=true value="5">
-            </div>
-          </div>
-          <div id="result"></div>
-        </section>
-      </main>
+  <body>
+    <h1>Color Picker</h1>
+  </br>  </br>
+    <h2>Select a color</h2>
+  </br>
+    <div class="slidecontainer">
+      <table>
+        <tr>
+          <td>
+            <label for="red">Red</label>
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value="255"
+              class="slider"
+              id="red"
+            />
+            <input type="text" readonly id="redBit" size="2" value="50" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="green">Green</label>
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value="255"
+              class="slider"
+              id="green"
+            />
+            <input type="text" readonly id="greenBit" size="2" value="50" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="blue">Blue</label>
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value="255"
+              class="slider"
+              id="blue"
+            /><input type="text" readonly id="blueBit" size="2" value="50" />
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+          </br>
+            <div id="pickedcolor"></div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <input type="text" readonly id="hexval" size="8" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src='./js/script.js'></script>
 </body>
 </html>
