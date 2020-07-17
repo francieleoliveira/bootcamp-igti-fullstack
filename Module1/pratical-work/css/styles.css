@@ -1,12 +1,13 @@
 .slidecontainer {
-    width: 30%;
+    width: 100%;
     text-align: center;
     margin: auto;
   }
   
+  
   .slider {
     -webkit-appearance: none;
-    width: 200px;
+    width: 150px;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
