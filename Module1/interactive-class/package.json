@@ -1,0 +1,20 @@
+{
+  "name": "interactive-class",
+  "version": "1.0.0",
+  "description": "Projeto para listar alguns podcasts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=3001"
+  },
+  "keywords": [
+    "podcast",
+    "radio",
+    "javascript"
+  ],
+  "author": "Franciele Oliveira",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
