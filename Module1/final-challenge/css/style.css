@@ -1,0 +1,71 @@
+body {
+    font-family: fantasy;
+    font-weight: lighter;
+    padding: 10px;
+    background-color: rgb(168, 164, 174);
+    color: rgb(13, 8, 80);
+  }
+  
+  h1 {
+    color: rgb(13, 8, 80);
+  }
+  
+  h1,
+  h4 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
+  
+  img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 12px;
+  }
+  
+  /* label color */
+  .input-field label {
+    color: rgb(7, 12, 71) !important;
+    size: 100px;
+  }
+  
+  /* label focus color */
+  .input-field input[type='text']:focus+label {
+    color: rgb(27, 85, 124) !important;
+  }
+  
+  /* label underline focus color */
+  .input-field input[type='text']:focus {
+    border-bottom: 1px solid rgb(44, 83, 212) !important;
+  
+  }
+  
+  .input-field input[type='text'].valid {
+    border-bottom: 1px solid rgb(212, 44, 114) !important;
+  
+  }
+  
+  .input-field input[type='text'].invalid {
+    border-bottom: 1px solid rgb(151, 39, 39) !important;
+  }
+  
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: rgb(104, 104, 197) !important;
+  }
+  
+  .results-box {
+    border-radius: 5px;
+    padding: 5px 15px 15px 15px !important;
+    min-height: 150px !important;
+  }
+  
+  .found-users {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
