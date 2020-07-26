@@ -5,11 +5,38 @@ let globalUsersCountries = [];
 
 
 async function start(){
-    await fetchUsers();
-    await fetchCountries();
+    // await fetchUsers();
+    // await fetchCountries();
+
+    //using promise
+    await promiseUsers();
+    await promiseCountries();
+
     hideSpinner();
     mergeUsersAndCountries();
     render();
+}
+
+async function promiseUsers(){
+    return new Promise(async (resolve,reject) => {
+        await fetchUsers();
+
+        setTimeout(()=>{
+            resolve();
+        }, 5000);
+      
+    });
+}
+
+async function promiseCountries(){
+    return new Promise(async (resolve,reject) => {
+        await fetchCountries();
+
+        setTimeout(()=> {
+            resolve();
+        }, 5000);
+        
+    });
 }
 
 async function fetchUsers(){
