@@ -2,6 +2,7 @@
 let globalUsers = [];
 let globalCountries = [];
 let globalUsersCountries = [];
+let globalFilteredUserCountries = [];
 
 
 async function start(){
@@ -9,12 +10,23 @@ async function start(){
     // await fetchCountries();
 
     //using promise
-    await promiseUsers();
-    await promiseCountries();
+    // console.time('medição');
+    // await promiseUsers();
+    // await promiseCountries();
+    // console.timeEnd('medição');
+
+    //using fetch
+    console.time('PromiseAll');
+    const p1 = promiseUsers();
+    const p2 = promiseCountries();
+    await Promise.all([p1,p2]);
+    console.timeEnd('PromiseAll');
 
     hideSpinner();
     mergeUsersAndCountries();
     render();
+
+    enableFilter();
 }
 
 async function promiseUsers(){
@@ -23,7 +35,7 @@ async function promiseUsers(){
 
         setTimeout(()=>{
             resolve();
-        }, 5000);
+        }, 1000);
       
     });
 }
@@ -34,7 +46,7 @@ async function promiseCountries(){
 
         setTimeout(()=> {
             resolve();
-        }, 5000);
+        }, 2000);
         
     });
 }
@@ -75,7 +87,11 @@ function mergeUsersAndCountries(){
     globalUsersCountries=[];
 
     globalUsers.forEach(user => {
-        const country = globalCountries.find(country => country.countryId === user.userCountry);
+        // const country = globalCountries.find(country => country.countryId === user.userCountry);
+
+        const country = globalCountries.filter(
+            (country) => country.countryId === user.userCountry;
+        )[0];
 
         const {countryName, countryFlag} = country;
 
@@ -85,6 +101,8 @@ function mergeUsersAndCountries(){
             countryFlag,
         });
     });
+    globalUsersCountries.sort((a,b) => a.userName.localeCompare(b.userName));
+    globalFilteredUserCountries = [...globalUsersCountries]
 }
 
 function render(){
@@ -92,7 +110,7 @@ function render(){
 
     divUsers.innerHTML = `
         <div class='row'>
-            ${globalUsersCountries.map(({countryFlag, userPicture, userName, countryName}) => {
+            ${globalFilteredUserCountries.map(({countryFlag, userPicture, userName, countryName}) => {
                 return `
                     <div class='col s6 m4 l3'>
                         <div class='flex-row bordered'>
@@ -108,6 +126,34 @@ function render(){
             ).join('')}
         </div>
     `
+}
+
+function enableFilter(){
+    const buttonFilter = document.querySelector('#buttonFilter');
+    
+    buttonFilter.addEventListener('click', handleFilter);
+    buttonFilter.addEventListener('keyup', handleKeyUp);
+}
+
+function handleFilter(){
+    const inputFilter = document.querySelector('#inputFilter');
+    const filterValue = inputFilter.value.trim();
+
+    globalFilteredUserCountries = globalUsersCountries.filter(item => {
+        return item.userName.toLowerCase().includes(filterValue);
+    });
+
+    render();
+}
+
+function handleKeyUp(event){
+    const { key } = event;
+
+    if(key !== 'Enter'){
+        return;
+    }
+
+    handleFilter();
 }
 
 start();

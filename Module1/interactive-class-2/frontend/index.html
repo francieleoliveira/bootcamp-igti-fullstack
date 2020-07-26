@@ -15,7 +15,10 @@
   <body>
     <div class="container">
       <h1 class="center">User Coutries</h1>
-
+      <div class="flex-row">
+        <input type="text" id="inputFilter" />
+        <button id="buttonFilter" class="waves-effect waves-light btn" style="margin-left: 10px;">Filtrar</button>
+      </div>
       <div id="spinner" class="flex-row flex-center">
         <div class="preloader-wrapper big active">
           <div class="spinner-layer spinner-blue-only">
@@ -30,7 +33,7 @@
             </div>
           </div>
         </div>
-        <span style="margin-left:10px; font-size: 1.3rem ">Loading...</span>
+        <span style="margin-left: 10px; font-size: 1.3rem;">Loading...</span>
       </div>
 
       <div id="divUsers"></div>
