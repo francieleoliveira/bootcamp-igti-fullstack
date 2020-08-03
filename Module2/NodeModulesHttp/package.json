@@ -1,13 +1,13 @@
 {
-  "name": "NodeModulesEvents",
+  "name": "NodeModulesHttp",
   "version": "1.0.0",
-  "main": "events.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "description": ""
+  "type": "module"
 }
